@@ -40,5 +40,63 @@ After you've forked the repo you should clone it (note: be sure to replace $USER
 
 <code>git clone https://github.com/$USER$/git-sandbox.git</code>
 
+You should see an ouput similar to:
+
+<pre>
+Cloning into 'git-sandbox'...
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0)
+Unpacking objects: 100% (3/3), done.
+</pre>
+
+Once you have this you should be well on your way.
+
+# Let's create our first feature.
+
+Since we're using this repo in an abstract sense we don't have to worry about actual code, for our purposes plain text files will accomplish our goal. Let's start by adding our very first feature!
+
+<code>touch feature</code>
+
+You should now have a file in your repo named "feature". If you open this file in the editor of your choice you'll find yourself amazed by the empty file. Let's add some text to it. Type the following string into the file and save it.
+
+<pre>This is our first feature</pre>
+
+Now if we type in <code>git status</code> we should see something similar to:
+
+<pre>
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	feature
+nothing added to commit but untracked files present (use "git add" to track)	
+</pre>
+
+Now, if you were like me when I first saw this screen I had no idea what it meant and that's OK! It's really not that hard, here we see that git is telling us that there is a file in the repository which it doesn't know about. It labels these kinds of files as "untracked files". To educate git about our awesome feature we simply need to add it.
+
+<code>git add feature</code>
+
+But this time when we type <code>git status</code> we get a completely different message:
+
+<pre>
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   feature
+#
+</pre>
+
+This is telling us that git is aware of a new file but we haven't yet commited this new file to our repository. To do that we have to issue a <code>git commit</code> command. When you do this a text editor should open, this is a buffer where you can type in a short message about the commit. Things like what the new feature does, or why the file was added. If we type in <pre>Our new feature</pre> and then save and quit we see a new message:
+
+<pre>
+master ee9233b] Added new feture
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature	
+</pre>
+
+Congratulations! You've just created your first feature. In the next section we will talk about modifying the file and unstaged changes.
+
 
 
